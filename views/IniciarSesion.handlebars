@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="mt-5">
+        <h3 class="text-center">
+            BANCO DIGITAL DE CHILE
+        </h3>
+        <h1 class="text-center">
+            INICIAR SESION
+        </h1>
+
+        <hr />
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 col-md-6 col-xl-4">
+
+                <input type="email" class="form-control" placeholder="Ingrese un email" />
+
+                <input type="password" class="form-control mt-2" placeholder="Ingrese un password" />
+
+                <button class="btn btn-dark btn-lg btn-block mt-2" type="submit">
+                    Acceder
+                </button>
+                <button onclick="irRegistro()" type="button" class="btn btn-info btn-sm btn-block mt-2">
+                    Registrarme
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const irRegistro = () => {
+            location.replace('/registro')
+        }
+    </script>
+
+</body>
+
+</html>
