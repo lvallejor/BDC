@@ -7,7 +7,7 @@ const morgan = require("morgan");
 
 const app = express();
 
-const { insertarUsuario } = require("./consultas");
+const { insertarUsuario, getUser } = require("./consultas");
 
 //Configuraciones
 app.set("view engine", "handlebars");
@@ -35,10 +35,6 @@ app.get("/registro", (req, res) => {
   res.render("Registro", { layout: "Registro" });
 });
 
-app.get("/bienvenida", (req, res) => {
-  res.render("Bienvenida", { layout: "Bienvenida" });
-});
-
 app.post("/registro", async (req, res) => {
   const { nombre, correo, rut, direccion, clave } = req.body;
   const dataUsuario = await insertarUsuario(
@@ -49,12 +45,39 @@ app.post("/registro", async (req, res) => {
     clave
   );
   dataUsuario
-    ? res.redirect("/bienvenida")
+    ? res.render("Bienvenida", { layout: "Bienvenida", nombre })
     : res.send(
         `<script>alert("Datos incorrectos, vuelva a intentar")</script>`
       );
 });
 
+app.post("/verify", async (req, res) => {
+  const { correo, clave } = req.body;
+  const user = await getUser(correo, clave);
+  let token = user ? jwt.sign(user, secretKey) : false;
+  user
+    ? res.redirect("/Transferencias?token=" + token)
+    : res.send("No existe este usuario en nuestra base de datos");
+
+  res.send();
+});
+
+app.get("/Transferencias", (req, res) => {
+  const { token } = req.query;
+
+  jwt.verify(token, secretKey, (err, payload) => {
+    err
+      ? res.status(401).send({ error: "401 No Autorizado", message: err })
+      : res.render("Transferencias", {
+          layout: "Transferencias",
+          nombre: payload.nombre,
+        });
+  });
+});
+
+app.get("/newTransfer", (req, res) => {
+  res.render("NuevaTransferencia", { layout: "NuevaTransferencia" });
+});
 //Starting de server
 app.listen(app.get("port"), () => {
   console.log(`Server on port ${app.get("port")}`);

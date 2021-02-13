@@ -29,7 +29,8 @@
 
                 <input type="text" class="form-control mt-2" placeholder="Ingrese su rut" id="rut" />
 
-                <input type="text" class="form-control mt-2" placeholder="Ingrese su direccion" id="direccion" />
+                <input type="text" class="form-control mt-2" placeholder="Ingrese su direccion" id="direccion"
+                    required />
 
                 <input type="password" class="form-control mt-2" placeholder="Ingrese su clave" id="clave" />
 
@@ -60,8 +61,10 @@
                 clave: clave
             }
 
+            if (nombre === "" || correo === "" || rut === "" || direccion === "" || clave === "") {
+                return (alert("Todos los campos son obligatorios"))
+            }
             const response = await axios.post("/registro", data)
-
 
         }
     </script>

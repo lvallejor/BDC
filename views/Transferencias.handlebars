@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+
+
+<div class="container text-center">
+    <h3 class="text-center mt-3">
+        TRANSFERENCIAS
+    </h3>
+    <button onclick="newTransfer()" class="btn btn-dark mb-2">NUEVA TRANSFERENCIA</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Referencia</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Comentario</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Destinatario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <button class="btn btn-sm btn-dark texte center">Siguiente</button>
+</div>
+
+<script>
+    const newTransfer = () => {
+        location.replace('/newTransfer')
+    }
+</script>

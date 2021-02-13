@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Banco Digital de Chile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 </head>
@@ -22,20 +22,24 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-sm-8 col-md-6 col-xl-4">
+                <form action="/verify" method="POST">
+                    <input type="email" class="form-control" placeholder="Ingrese un email" name="correo" required />
 
-                <input type="email" class="form-control" placeholder="Ingrese un email" />
+                    <input type="password" class="form-control mt-2" placeholder="Ingrese un password" name="clave"
+                        required />
 
-                <input type="password" class="form-control mt-2" placeholder="Ingrese un password" />
+                    <button class="btn btn-dark btn-lg btn-block mt-2" type="submit">
+                        Acceder
+                    </button>
+                    <button onclick="irRegistro()" type="button" class="btn btn-info btn-sm btn-block mt-2">
+                        Registrarme
+                    </button>
+                </form>
 
-                <button class="btn btn-dark btn-lg btn-block mt-2" type="submit">
-                    Acceder
-                </button>
-                <button onclick="irRegistro()" type="button" class="btn btn-info btn-sm btn-block mt-2">
-                    Registrarme
-                </button>
             </div>
         </div>
     </div>
+
 
     <script>
         const irRegistro = () => {

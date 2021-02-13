@@ -21,4 +21,11 @@ const insertarUsuario = async (nombre, correo, rut, direccion, clave) => {
   }
 };
 
-module.exports = { insertarUsuario };
+const getUser = async (correo, clave) => {
+  const result = await pool.query("SELECT * FROM usuarios where correo = $1", [
+    correo,
+  ]);
+  return result.rows[0];
+};
+
+module.exports = { insertarUsuario, getUser };

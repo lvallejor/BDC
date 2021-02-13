@@ -1,41 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-</head>
 
-<body>
-    <div class="mt-5">
-        <h3 class="text-center">
-            BANCO DIGITAL DE CHILE
-        </h3>
-        <h1 class="text-center">
-            {{nombre}} SE HA REGISTRADO CON EXITO
-        </h1>
 
-        <hr />
+<div class="mt-5">
+    <h3 class="text-center">
+        BANCO DIGITAL DE CHILE
+    </h3>
+    <h1 class="text-center">
+        {{nombre}} SE HA REGISTRADO CON EXITO
+    </h1>
 
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-md-6 col-xl-4">
+    <hr />
 
-                <button onclick="irSesion()" type="button" class="btn btn-info btn-sm btn-block mt-2">
-                    Continuar
-                </button>
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 col-xl-4">
+
+            <button onclick="irSesion()" type="button" class="btn btn-info btn-sm btn-block mt-2">
+                Continuar
+            </button>
         </div>
     </div>
-    <script>
-        const irSesion = () => {
-            location.replace('/sesion')
-        }
-    </script>
-</body>
-
-
-
-</html>
+</div>
+<script>
+    const irSesion = () => {
+        location.replace('/sesion')
+    }
+</script>
